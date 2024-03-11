@@ -19,6 +19,7 @@ const Currweather = () => {
   return (
       <div className="w-full h-full bg-gray-900">
     <input type="text" className="Location w-2/3" />
+    <button>go</button>
   </div>
   );
 };
