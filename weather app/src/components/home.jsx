@@ -1,20 +1,28 @@
 import { useState } from "react";
+import lightmode from "./assets/lightmode.svg";
+import darkmode from "./assets/darkmode.svg";
 
-  
-const Mainhome = ()=>{
+const Mainhome = () => {
+  const [light, setLight] = useState(false);
 
-    const [light, setLight] = useState(false);
-    const toggleLight = () => {
-        setLight(!light);
-    };
- return(
-    <button
-    style={Props} onClick={toggleLight}
-    className="curve h-7 w-7 border bg-neutral-900 px-1 py-[2px] absolute rounded-full ease-in-out justify-self-end">
-    <img src={light ? lightmode : darkmode} alt="toggle btn"></img>
-  </button>
- );
+  const toggleLight = () => {
+    setLight(!light);
+  };
+  document.body.className = !light
+    ? "bg-gradient-to-r from-gray-900 via-slate-800 to-gray-700 min-h-screen"
+    : "bg-gradient-to-r from-teal-900 via-blue-800 to-blue-900 min-h-screen";
 
-
-}
+  return (
+    <>
+        <div className="flex justify-center">
+        <h1 className=" font-sans font-extrabold text-gray-200">WEATHER TODAY</h1>
+        </div>
+        <div className=" flex justify-end">
+          <button onClick={toggleLight} className=" bg-slate-600 rounded ">
+            <img src={light ? lightmode : darkmode} alt="toggle btn"></img>
+          </button>
+        </div>
+    </>
+  );
+};
 export default Mainhome;
