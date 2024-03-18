@@ -17,6 +17,7 @@ const Mainhome = () => {
         <div className="flex justify-center">
         <h1 className=" font-sans font-extrabold text-gray-200">WEATHER TODAY</h1>
         </div>
+        <div>find how today weather</div>
         <div className=" flex justify-end">
           <button onClick={toggleLight} className=" bg-slate-600 rounded ">
             <img src={light ? lightmode : darkmode} alt="toggle btn"></img>
