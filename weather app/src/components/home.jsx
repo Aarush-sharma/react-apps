@@ -1,28 +1,21 @@
-import { useState } from "react";
-import lightmode from "./assets/lightmode.svg";
-import darkmode from "./assets/darkmode.svg";
+
+import "./styles/home.css";
 
 const Mainhome = () => {
-  const [light, setLight] = useState(false);
+  
 
-  const toggleLight = () => {
-    setLight(!light);
-  };
-  document.body.className = !light
-    ? "bg-gradient-to-r from-gray-900 via-slate-800 to-gray-700 min-h-screen"
-    : "bg-gradient-to-r from-teal-900 via-blue-800 to-blue-900 min-h-screen";
 
   return (
     <>
-        <div className="flex justify-center">
-        <h1 className=" font-sans font-extrabold text-gray-200">WEATHER TODAY</h1>
-        </div>
-        <div>find how today weather</div>
-        <div className=" flex justify-end">
-          <button onClick={toggleLight} className=" bg-slate-600 rounded ">
-            <img src={light ? lightmode : darkmode} alt="toggle btn"></img>
-          </button>
-        </div>
+      
+      <div className="flex justify-center ">
+      <h1 className="head font-black relative left-44 text-[#faf2f5] text-6xl mt-5">WEATHER TODAY</h1>
+        <h1 className="head font-extrabold relative  text-[#ffb5d5] text-2xl mt-20 ">
+        Stay Ahead, 
+        </h1>
+        <h1  className="head1 font-extrabold text-[#faf2f5] relative right-16 text-2xl mt-28"> Weatherwise.</h1>
+      </div>
+    
     </>
   );
 };
