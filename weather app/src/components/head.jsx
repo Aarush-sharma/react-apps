@@ -1,17 +1,18 @@
 
 
-const Card = (props) => {
+const Head = (props) => {
+  
   return (
     <>
       <div className="ml-0">
-        
         <p className=" text-2xl font-bold text-gray-200 ml-2 mt-4">{props.conditions}</p>
         <p className="text-2xl font-bold text-gray-200 ml-2 mt-2">{props.time}</p>
+        <p>{props.datetime}</p>
       </div>
     </>
   );
 };
-export default Card;
+export default Head;
 const images = {
   rain: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVR4nO3XTYjjdBjH8SAqLqwe5tJ0WBz3JCyLBw9eRMSrglfFiwgiHhQ8rIggePOgiOBF2owoePOgIIt3aacv0+alTZq+TNM2/yZt07Tpa94m4z7yz7y448y2VdudFvKD762FzxNCoQQRLFiwYMGCBQu2PgOAm0dHR+96nvel53nfHh4efux53msA8BixznMc55brur+7rnvPdQ/BdV1wHBdsxwHbdsCybc2yrM/W8hDLct+2bdvBWMu2/UwLZ8HUxJkwmeKmMBpPGNM0t4l12cSy3pqa5r1/QseT40bjid9wNPYbDEcwGA4FwzB2NE27fqV4y7J2xuOJeSl0hKEjMHCDIfRxxgB6xgD0vuHX7eF63Y7e/17X9Wcf+gHD4fjHWdDeOWgfNB3Xg04Xp0Nbw3WhpXVBbWue2tY+fChwAHjEMIzn+sbAvB+qPwh6gsXQVqcLakfDYFDaHVBaHWi22tBU24DUNshK6/2V4rv9/ht6r1/F0O4pVF8U2jmDIqWFsSA3VWg0VagjxU9Cii1J6tMrwWu93qf4qf4f6Cm2hpObIOEaCKq4ugwHdRkqkvzV0vGqpr2otDt/zoUq56H1S6HIhx7UZKjUGlCRGlCW6lCu1qFUrUGpUuOXfkBTaf/iQ9XZ0NrC0GNs8QAngVjBVaFQxh1Ml35AHSn6ZVBpFlSaCwWhdBxfrEAeJ5YhJ5YGSz9AaiAHQ6v3Q2uLQqvnoPwZtAy5Qgm4k1ih6MfwheTSDyhXG8X/Cj3FXoSKfnS+4JfN4QTIsMInSz+gUKl+gbEPhBbLF57qRah4HsrheNhncXlIM3lI07lOvFh8cukHCIKwxYvl5mVQ7l9BeUifYFNMDlJ0DpI0B8ksB3sZxo1n2VeIVY0TxdssX2yw86DcbGgCl2FhL8NCfJ/xi6VoFE9lXyJWPUEQru9z/J0My/+RZnkpzfBSisn7JRlOStKclKBZKZE9KcNIe7g0I8XTjBRL0X+XzoqxNH03lqLfSyQS11aOD7aOC+2i2ySFvglT8j4Rya7f38VZC1HohXBUPgpTCMio/Cux4MKRxvNhCn1AXPVIqvkqxuO2I/Lr8z4fijZukpTM+t+JorvEOmw7gt7ELfJZchfdOTuYQu8Qm7bQd/VnwpScJKPot1s/C48T67wbX6NrZAS9TGzatn6qPEVS8m44Kk9JCsWITVs4Kn90+p7jd57YtIXwTyslT0hKlm9QaIvYxO38UH+C+BwevWpHsGDBggUj5u0vZ8P+5coPhjIAAAAASUVORK5CYII=",
   sunny:

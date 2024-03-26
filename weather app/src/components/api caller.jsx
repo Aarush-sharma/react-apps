@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Card from "./card";
-import Tables from "./table"
+import Head from "./head";
+import Tables from "./table";
 
 const Currweather = (props) => {
   const [img, setimg] = useState([]);
@@ -13,7 +13,7 @@ const Currweather = (props) => {
         let response = await fetch(baseURL);
         let info = await response.json();
         setdata(info.currentConditions);
-        setimg(info)
+        setimg(info);
         console.log(img);
       } catch (error) {
         console.error("failed to fetch data", error);
@@ -26,28 +26,34 @@ const Currweather = (props) => {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-  let add=capitalizeFirstLetter(img.address)
+  let add = capitalizeFirstLetter(img.address);
   return (
     <>
       <div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-full bg-transparent backdrop-blur-lg flex flex-col pl-10 justify-center">
-        <div className="text-2xl font-bold text-gray-200 ml-0">{add}</div>
-        <div className=" text-8xl flex justify-start text-gray-200">
-          {data.feelslike} <div className=" mt-5 text-4xl">°C</div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="h-full w-full   flex  pl-10 justify-between ">
+           <div className="flex justify-center">
+           <div className="flex flex-col justify-center">
+              <div className="text-2xl font-bold text-gray-200 ml-0 flex">
+                {add} <p className="ml-2">Today</p>
+              </div>
+              <div className=" text-8xl flex justify-start text-gray-200">
+                {data.feelslike} <div className=" mt-5 text-4xl">°C</div>
+              </div>
+
+              <Head
+                conditions={data.conditions}
+                icon={data.icon}
+                time={data.datetime}
+              ></Head>
+            </div>
+           </div>
+            <div className="mr-16 relative -top-20">
+              <Tables forecast={img.days}></Tables>
+            </div>
+          </div>
         </div>
-        
-        <Card
-          conditions={data.conditions}
-          icon={data.icon}
-          time={data.datetime}
-        ></Card>
-         <Tables></Tables>
       </div>
-        </div>
-      </div>
-      
-     
     </>
   );
 };
