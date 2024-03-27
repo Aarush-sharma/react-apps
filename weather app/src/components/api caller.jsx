@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "./head";
 import Tables from "./table";
+import Card from "./card";
 
 const Currweather = (props) => {
   const [img, setimg] = useState([]);
@@ -32,24 +33,28 @@ const Currweather = (props) => {
       <div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-full w-full   flex  pl-10 justify-between ">
-           <div className="flex justify-center">
-           <div className="flex flex-col justify-center">
-              <div className="text-2xl font-bold text-gray-200 ml-0 flex">
-                {add} <p className="ml-2">Today</p>
-              </div>
-              <div className=" text-8xl flex justify-start text-gray-200">
-                {data.feelslike} <div className=" mt-5 text-4xl">°C</div>
-              </div>
+            <div className="flex justify-center">
+              <div className="flex flex-col justify-center">
+                <div className="text-2xl font-bold text-gray-200 ml-0 flex">
+                  {add} <p className="ml-2">Today</p>
+                </div>
+                <div className=" text-8xl flex justify-start text-gray-200">
+                  {data.feelslike} <div className=" mt-5 text-4xl">°C</div>
+                </div>
 
-              <Head
-                conditions={data.conditions}
-                icon={data.icon}
-                time={data.datetime}
-              ></Head>
+                <Head
+                  conditions={data.conditions}
+                  icon={data.icon}
+                  time={data.datetime}
+                ></Head>
+              </div>
             </div>
-           </div>
-            <div className="mr-16 relative -top-20">
+            <div className="mr-16 relative -top-20 flex flex-col ">
               <Tables forecast={img.days}></Tables>
+              <div className="flex -top-24 gap-5 relative ">
+              <Card value={data.humidity} title="Humidity" ></Card>
+              <Card value={data.visibility} title="visiblity"></Card>
+              </div>
             </div>
           </div>
         </div>
