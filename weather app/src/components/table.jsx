@@ -70,7 +70,7 @@ function Tables(props) {
         </table>
       </div>
     </>
-  );
+  ); 
 }
 
 export default Tables;

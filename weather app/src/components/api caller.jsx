@@ -2,27 +2,33 @@ import { useEffect, useState } from "react";
 import Head from "./head";
 import Tables from "./table";
 import Card from "./card";
+import Loader from "./loader"
 
-const Currweather = (props) => {
+const Currweather = ({region}) => {
   const [img, setimg] = useState([]);
   const [data, setdata] = useState([]);
-
-  useEffect(() => {
+  const [Loading,setLoading] = useState(true)
+  console.log(region)
+  useEffect(() => { 
+    
     let fetchdata = async () => {
       try {
-        let baseURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${props.region}?unitGroup=uk&include=current&key=G2C4SU2XUWHCJUENLR5CYKKRR&contentType=json`;
+        let baseURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${region}?unitGroup=uk&include=current&key=G2C4SU2XUWHCJUENLR5CYKKRR&contentType=json`;
         let response = await fetch(baseURL);
         let info = await response.json();
         setdata(info.currentConditions);
         setimg(info);
         console.log(img);
+        
       } catch (error) {
         console.error("failed to fetch data", error);
+      } finally{
+        setLoading(false);
       }
     };
-
-    fetchdata();
-  }, []);
+   if(Loading){fetchdata();}
+   
+  }, [region,Loading]);
   function capitalizeFirstLetter(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -30,6 +36,9 @@ const Currweather = (props) => {
   let add = capitalizeFirstLetter(img.address);
   return (
     <>
+     {Loading ? (
+        <Loader />
+      ) : (
       <div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-full w-full   flex  pl-10 justify-between ">
@@ -59,6 +68,7 @@ const Currweather = (props) => {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 };

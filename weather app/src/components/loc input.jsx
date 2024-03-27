@@ -8,6 +8,7 @@ const RegionInput = ({ region, onRegionChange }) => {
       window.location.href = "/current-weather";
       
     }
+   
   };
 
   return (
