@@ -3,12 +3,12 @@ import Head from "./head";
 import Tables from "./table";
 import Card from "./card";
 import Loader from "./loader"
+import Bg from "./bg"
 
 const Currweather = ({region}) => {
   const [img, setimg] = useState([]);
   const [data, setdata] = useState([]);
   const [Loading,setLoading] = useState(true)
-  console.log(region)
   useEffect(() => { 
     
     let fetchdata = async () => {
@@ -18,7 +18,7 @@ const Currweather = ({region}) => {
         let info = await response.json();
         setdata(info.currentConditions);
         setimg(info);
-        console.log(img);
+        
         
       } catch (error) {
         console.error("failed to fetch data", error);
@@ -34,12 +34,14 @@ const Currweather = ({region}) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   let add = capitalizeFirstLetter(img.address);
+  console.log(img);
   return (
     <>
      {Loading ? (
         <Loader />
       ) : (
-      <div>
+      <>
+        <Bg data={data.datetime}></Bg>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-full w-full   flex  pl-10 justify-between ">
             <div className="flex justify-center">
@@ -50,7 +52,7 @@ const Currweather = ({region}) => {
                 <div className=" text-8xl flex justify-start text-gray-200">
                   {data.feelslike} <div className=" mt-5 text-4xl">°C</div>
                 </div>
-
+                 
                 <Head
                   conditions={data.conditions}
                   icon={data.icon}
@@ -67,7 +69,7 @@ const Currweather = ({region}) => {
             </div>
           </div>
         </div>
-      </div>
+      </>
       )}
     </>
   );

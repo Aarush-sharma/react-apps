@@ -1,0 +1,12 @@
+@keyframes sunAnimation {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+      transform: translate(-120px, calc(-50vh - -36px)) scale(1);
+    }
+  }
+  
+  .sun {
+    animation: sunAnimation 1.5s ease-out forwards;
+  }

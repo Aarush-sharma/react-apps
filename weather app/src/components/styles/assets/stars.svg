@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="48px" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Moon -->
+  <defs>
+    <radialGradient id="moonGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFFFF0" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </radialGradient>
+  </defs>
+  <circle cx="12" cy="12" r="10" fill="url(#moonGradient)" />
+
+  <!-- Stars -->
+  <!-- Example stars: plus shapes with sharp edges filled with white color -->
+  <path d="M6 6h2v2H6zM16 6h2v2h-2zM6 16h2v2H6zM16 16h2v2h-2z" fill="#FFFFFF" />
+</svg>
+

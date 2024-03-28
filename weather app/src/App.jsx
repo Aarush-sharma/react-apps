@@ -9,37 +9,40 @@ function App() {
 
   const regionhandler = (region) => {
     setdata(region);
-    
   };
 
   return (
     <>
       <BrowserRouter>
-        <div
-          className="bgimage"
-          style={{
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            minHeight: "100vh",
-          }}
-        >
-          
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div
+                  className="bgimage"
+                  style={{
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    minHeight: "100vh",
+                  }}
+                >
                   <Mainhome />
                   <RegionInput region={data} onRegionChange={regionhandler} />
-                </>
-              } 
-            ></Route>
-            <Route
-              path="/current-weather"
-              element={<Currweather region={data} />}
-            />
-          </Routes>
-        </div>
+                </div>
+              </>
+            }
+          ></Route>
+
+          <Route
+            path="/current-weather"
+            element={<>
+            
+            <Currweather region={data} />
+        
+            </>}
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );
