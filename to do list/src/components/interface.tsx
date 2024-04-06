@@ -1,9 +1,12 @@
 import { useState } from "react";
-
+import "./styles/heading.css"
 import Task from "./task";
 import Input from "./input";
 import Chexkbox from "./checkbox";
 import Delete from "./deletebtn";
+import Quote from "./quotes";
+
+
 interface inputhandle {
   target: {
     value: string;
@@ -52,6 +55,9 @@ export default function Interface() {
             </div>
           )
       )}
+      <div className="fixed bottom-0 left-0 w-full backdrop-blur-2xl flex-col  shadow-lg shadow-slate-300 h-20 z-10 flex justify-center items-center bubble">
+      <Quote></Quote>
+      </div>
     </>
   );
 }
