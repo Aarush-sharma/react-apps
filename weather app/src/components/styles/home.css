@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap');
+
+.bgimage{
+    background-image: url("./assets/cherry blossom.jpg");
+    
+}
+.head{
+    font-family: montserrat;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    
+}
+.head1{
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+  
