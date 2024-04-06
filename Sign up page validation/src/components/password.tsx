@@ -1,8 +1,8 @@
-import eye from "./public/eye.svg";
-import hidden from "./public/hidden.svg";
+import eye from "./styles/public/eye.svg";
+import hidden from "./styles/public/hidden.svg";
 import { useState } from "react";
 
-const ToggleButton = () => {
+const Password = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
 
@@ -28,4 +28,4 @@ const ToggleButton = () => {
     </div>
   );
 };
-export default ToggleButton;
+export default Password;
