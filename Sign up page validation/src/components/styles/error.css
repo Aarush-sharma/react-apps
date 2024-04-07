@@ -2,14 +2,38 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 320px;
     padding: 12px;
-    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
     background: #FCE8DB;
     border-radius: 8px;
     border: 1px solid #EF665B;
     box-shadow: 0px 0px 5px -3px #111;
+    position: relative;
+    opacity: 0;
+  }
+  
+  .error.animate {
+    animation: slideIn 0.5s ease forwards, fadeOut 0.5s ease 3s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
   }
   
   .error__icon {
@@ -39,3 +63,4 @@
   .error__close path {
     fill: #71192F;
   }
+  

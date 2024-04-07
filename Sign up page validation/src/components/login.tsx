@@ -3,17 +3,18 @@ import Background from "./background";
 import Button from "./button";
 import Email from "./email";
 import Password from "./password";
-import Error from "./warning";
+
 const Login = () => {
+  let val=false ;
+  let msg="";
   return (
     <>
-      <Background>
-        <Name />
+      <Background value={val} msg={msg}>
+        <Name value={val} msg={msg}/>
         <Email />
         <label > Enter password
         <Password />
         </label>
-        <Error/>
         <label > Confirm password
         <Password />
         </label>
