@@ -1,18 +1,21 @@
+import { useState } from "react";
 import Name from "./Name";
-import Background from "./background";
-import Button from "./button";
 import Email from "./email";
 import Password from "./password";
+import Background from "./background";
+import Button from "./button";
+
 
 const Login = () => {
-  let val=false ;
-  let msg="";
+  const [val,setval] = useState(false)
+  const [msg , setmsg] = useState("")
+  console.log(val,msg)
   return (
     <>
       <Background value={val} msg={msg}>
-        <Name value={val} msg={msg}/>
+      <Name value={} msg={}/>
         <Email />
-        <label > Enter password
+        <label> Enter password
         <Password />
         </label>
         <label > Confirm password

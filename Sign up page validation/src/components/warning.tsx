@@ -2,8 +2,8 @@
 import "./styles/error.css";
 //animate
 interface error {
-  value: boolean;
-    msg: string;
+  value: boolean ;
+    msg: string ;
 }
 function Error(props:error) {
   

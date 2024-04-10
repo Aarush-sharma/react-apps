@@ -5,9 +5,10 @@ interface event {
   };
 }
 interface Boolean {
-  value: boolean;
-  msg: string;
+  value: void | boolean ;
+  msg:  void | string;
 }
+
 function Name(props: Boolean) {
   let chars: string[] = [];
   const [Name, setName] = useState("");
@@ -17,11 +18,11 @@ function Name(props: Boolean) {
       chars.push(i); 
     }
     if (chars.length > 0 && chars[0] !== chars[0].toUpperCase()) {
-      props.value == true;
+      props.value = true;
       props.msg = "First character should be uppercase"
     }
   };
-
+ 
   return (
     <>
       <label htmlFor="Name" className="ml-7 mt-5">
