@@ -9,18 +9,20 @@ import Button from "./button";
 const Login = () => {
   const [val,setval] = useState(false)
   const [msg , setmsg] = useState("")
-  console.log(val,msg)
+  const Msgreciever = (data: string) => {
+    console.log( data);
+    setmsg(data)
+  };
+  const Valreciever = (data: boolean) => {
+    console.log( data);
+    setval(data)
+  };
   return (
     <>
       <Background value={val} msg={msg}>
-      <Name value={} msg={}/>
-        <Email />
-        <label> Enter password
-        <Password />
-        </label>
-        <label > Confirm password
-        <Password />
-        </label>
+      <Name value={Valreciever} msg={Msgreciever}/>
+        <Email value={Valreciever} msg={Msgreciever}/>
+        <Password value={Valreciever} msg={Msgreciever}/>
         <Button/>
       </Background>
     </>

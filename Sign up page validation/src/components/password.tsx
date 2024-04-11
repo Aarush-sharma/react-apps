@@ -1,31 +1,34 @@
-import eye from "./styles/public/eye.svg";
-import hidden from "./styles/public/hidden.svg";
 import { useState } from "react";
-
-const Password = () => {
-  const [isPasswordVisible, setPasswordVisible] = useState(false);
-  const [password, setPassword] = useState("");
-
-  const handleTogglePassword = () => {
-    setPasswordVisible(!isPasswordVisible);
+import { Data, event } from "./Name";
+import Passinput from "./passinput";
+function Password(props: Data) {
+  const [pass1, setpass1] = useState("");
+  const [pass2, setpass2] = useState("");
+  const val1 = (data: string) => {
+    setpass1(data);
   };
+  const val2 = (data: string) => {
+    setpass2(data);
+    
+  };
+  if (pass1 !== pass2) {
+    props.value(true);
+    props.msg("Passwords does not match");
+  }
 
+  console.log(pass1, pass2);
   return (
-    <div>
-      <input
-        className="h-10 w-4/5 ml-5 pl-2 rounded-[10px] mt-1 mb-8"
-        type={isPasswordVisible ? "password" : "text"}
-        value={password} id="password" autoComplete="new-password"
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter your password"
-      />
-      <button onClick={handleTogglePassword} className="ml-2 relative top-1">
-        <img
-          src={isPasswordVisible ? hidden : eye}
-          alt="Toggle password visibility"
-        />
-      </button>
-    </div>
+    <>
+      <label>
+        Enter password
+        <Passinput data={val1}></Passinput>
+      </label>
+      <label>
+        Confirm password
+        <Passinput data={val2}></Passinput>
+      </label>
+    </>
   );
-};
+}
+
 export default Password;

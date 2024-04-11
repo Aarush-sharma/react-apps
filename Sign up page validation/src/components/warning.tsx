@@ -8,7 +8,7 @@ interface error {
 function Error(props:error) {
   
   return (
-    <div className={`error justify-start flex ${props.value ? 'animate' : ''}`}>
+    <div className={`error justify-start flex ${props.value ? 'animate' : ''}`} >
       <div className="error__icon">
         <svg
           fill="none"

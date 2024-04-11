@@ -4,25 +4,27 @@ interface event {
     value: string;
   };
 }
-interface Boolean {
-  value: void | boolean ;
-  msg:  void | string;
+interface Data {
+  value: (data: boolean) => void;
+  msg: (data: string) => void;
 }
 
-function Name(props: Boolean) {
-  let chars: string[] = [];
+function Name(props: Data) {
   const [Name, setName] = useState("");
+  let chars: string[] = [];
+
   const namehandler = (e: event) => {
+
     setName(e.target.value);
     for (let i of Name) {
-      chars.push(i); 
+      chars.push(i);
     }
     if (chars.length > 0 && chars[0] !== chars[0].toUpperCase()) {
-      props.value = true;
-      props.msg = "First character should be uppercase"
+      props.value(true);
+      props.msg("First character should be uppercase");
     }
   };
- 
+
   return (
     <>
       <label htmlFor="Name" className="ml-7 mt-5">
@@ -41,3 +43,4 @@ function Name(props: Boolean) {
 }
 
 export default Name;
+export type{ Data , event }
