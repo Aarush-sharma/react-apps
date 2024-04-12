@@ -13,9 +13,11 @@
   }
   
   .error.animate {
-    animation: slideIn 0.5s ease forwards, fadeOut 0.5s ease 3s forwards;
+    animation: slideIn 0.5s ease forwards ;
   }
-  
+  .error.delete{
+  animation:   fadeOut 0.5s ease  forwards;
+  }
   @keyframes slideIn {
     0% {
       transform: translateY(-50px);

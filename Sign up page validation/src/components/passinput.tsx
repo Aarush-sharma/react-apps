@@ -5,6 +5,8 @@ import { useState } from "react";
 
 interface func {
   data:(data: string) => void;
+  id:string
+  placeholder:string;
 }
 const Passinput = (props:func) => {
   const [isVisible, setVisible] = useState(false);
@@ -18,21 +20,25 @@ const Passinput = (props:func) => {
   };
 
   return (
-    <div>
-      <input
-        className="h-10 w-4/5 ml-5 pl-2 rounded-[10px] mt-1 mb-8"
-        type={isVisible ? "password" : "text"}
-         id="password" autoComplete="new-password"
-        onChange={changehandler}
-        placeholder="Enter your password"
-      />
-      <button onClick={handleToggle} className="ml-2 relative top-1">
-        <img
-          src={isVisible ? hidden : eye}
-          alt="Toggle password visibility"
-        />
-      </button>
-    </div>
+    <div className="relative flex">
+  <input
+    className="h-10 w-4/5 ml-5 pl-2 rounded-[10px] mb-5 pr-[40px]"
+    type={isVisible ? "password" : "text"}
+    id={props.id}
+    autoComplete="new-password"
+    onChange={changehandler}
+    placeholder={props.placeholder}
+  />
+  <button
+    onClick={handleToggle}
+    className="toggle-button absolute right-0 top-0 bottom-0 m-auto mr-[18%] mb-[3vh]"
+  >
+    <img
+      src={isVisible ? hidden : eye}
+      alt="Toggle password visibility"
+    />
+  </button>
+</div>
   );
 };
 export default Passinput;

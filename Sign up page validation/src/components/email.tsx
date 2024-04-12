@@ -7,18 +7,18 @@ function Email(props:Data) {
   const validator = (e:event) => {
     setEmail(e.target.value)
    setTimeout(()=>{
-   if(Email.indexOf("@")===-1 && Email.indexOf(".")===-1){
+   if(Email.indexOf("@")===-1 || Email.indexOf(".")===-1){
     props.value(true);
     props.msg("Enter a valid email")
+   }else{
+    props.value(false);
    }
    },1000)
    
   };
   return (
     <>
-      <label htmlFor="email" className="ml-7 mt-5">
-        Email
-      </label>
+    
       <input
         id="email"
         type="email"
@@ -26,7 +26,7 @@ function Email(props:Data) {
         onChange={validator}
         placeholder="Enter your Email"
         autoComplete="email"
-        className="h-10 w-4/5 pl-2 rounded-[10px] ml-5 mt-1"
+        className="h-10 w-4/5 pl-2 rounded-[10px] ml-5 mb-5 mt-1"
       />
     </>
   );

@@ -5,7 +5,7 @@ interface event {
   };
 }
 interface Data {
-  value: (data: boolean) => void;
+  value: (data: boolean | undefined) => void;
   msg: (data: string) => void;
 }
 
@@ -14,7 +14,6 @@ function Name(props: Data) {
   let chars: string[] = [];
 
   const namehandler = (e: event) => {
-
     setName(e.target.value);
     for (let i of Name) {
       chars.push(i);
@@ -22,25 +21,25 @@ function Name(props: Data) {
     if (chars.length > 0 && chars[0] !== chars[0].toUpperCase()) {
       props.value(true);
       props.msg("First character should be uppercase");
+    } else {
+      props.value(false);
     }
   };
 
   return (
     <>
-      <label htmlFor="Name" className="ml-7 mt-5">
-        Name
-      </label>
+      
       <input
         id="Name"
         type="text"
         onChange={namehandler}
         placeholder="Enter your Name"
         autoComplete="Name"
-        className="h-10 w-4/5 pl-2 rounded-[10px] ml-5 mt-1"
+        className="h-10 w-4/5 pl-2 rounded-[10px] ml-5 my-5  mt-1"
       />
     </>
   );
 }
 
 export default Name;
-export type{ Data , event }
+export type { Data, event };
