@@ -3,8 +3,7 @@ import Name from "./components/Name";
 import Email from "./components/email";
 import Password from "./components/password";
 import Background from "./components/background";
-import { auth } from "./firebase/firebase.config"
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const App = () => {
   const [val, setval] = useState<boolean>();
